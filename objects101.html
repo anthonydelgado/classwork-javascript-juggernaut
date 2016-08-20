@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+    <!--materialize-->
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <!--Sweet Alerts-->
+    <script src="bower_components/sweetalert/dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+
+    <style>
+
+        .sa-icon.sa-custom {
+            width: 100% !important;
+            height: 200px !important;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>h for honk</li>
+    <li>d for drive</li>
+    <li>w to drive around the world</li>
+    <li>t to get a tune up</li>
+</ul>
+<script>
+
+
+    var car = {
+        make: "Honda",
+        model: "Fit",
+        color: "Blue Rasberry",
+        mileage: 3000,
+        isWorking: true,
+
+        driveToWork: function(){
+
+//            alert("Old Mileage: " + this.mileage)
+
+            this.mileage = this.mileage + 8;
+
+//            alert("New mileage: " + this.mileage);
+
+            swal({   title: "Drive to work",   text: "New mileage: " + this.mileage,   imageUrl: "images/work.gif" });
+        },
+
+        driveAroundWorld: function(){
+
+            console.log("Old Mileage: " + this.mileage);
+
+            this.mileage = this.mileage + 24000;
+
+            console.log("New Mileage: " + this.mileage);
+
+            swal("Car needs a tuneup!")
+            swal({   title: "You drove around the world!",   text: "Car needs a tuneup!",   imageUrl: "images/carbroke.gif" });
+
+            this.isWorking = false;
+        },
+
+        getTuneUp: function(){
+//            alert("Car is ready to go!");
+            swal({   title: "You got a tune up!",   text: "Car is ready to go!",   imageUrl: "images/newcar.gif" });
+            this.isWorking = true;
+        },
+
+        honk: function(){
+            swal({   title: "Honk!",   text: "beep beep!",   imageUrl: "images/honk.gif" });
+        }
+    }
+
+
+
+    document.onkeyup = function () {
+
+        // Determines which exact key was selected. Make it lowercase
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+        switch (userGuess) {
+            case 'h':
+                car.honk();
+                break;
+            case 'd':
+                car.driveToWork();
+                break;
+            case 'w':
+                car.driveAroundWorld();
+                break;
+            case 't':
+                car.getTuneUp();
+                break;
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

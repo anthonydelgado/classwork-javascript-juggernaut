@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Function</title>
+</head>
+<body>
+
+<script>
+
+    // FUNCTIONS
+    // ================================================================================
+
+    // Creates Function called "adder" with three arguments (x, y, z) that get passed into it and console.log the result
+
+    function adder(x,y,z) {
+
+        var addition = x + y + z;
+
+        console.log(addition);
+
+    }
+
+
+    // Creates a Function called "multiplier" with three arguments (x, y, z) that get passed into it and console.log the result
+
+
+    function multiplier(x,y,z) {
+
+        var multiplication = x * y * z;
+
+        console.log(multiplication);
+    }
+
+    // Creates a function called "isString" with three arguments (x, y, z) that get passed into it and console.log whether all three are a string or not
+
+
+    function isString(x,y,z) {
+
+        if ( (typeof x === "string") && (typeof y === "string") && (typeof z === "string") ) {
+            console.log('They are all strings');
+        }else {
+            console.log('They are not all strings');
+        }
+    }
+
+
+    // Creates a function called "vowelChecker" that takes in a single argument (x) and console.log's whether the value is a vowel or not
+
+
+    function vowelChecker(x) {
+
+        if ( ( x === "a") | ( x === "e") | ( x === "i") | ( x === "o") | ( x === "u") ) {
+            console.log( x + ' is a vowel');
+        } else if ( x === "y") {
+            console.log('Y is sometimes a vowel.... lol');
+        } else {
+            console.log( x + ' is not a vowel');
+        }
+
+    }
+
+    // FUNCTION EXECUTION
+    // ================================================================================
+
+    // Add in the lines of code below necessary to "call" the functions you created above.
+
+    // Call the adder function here
+
+    adder(5,5,5);
+
+    // Call the multiplier function here.
+
+    multiplier(5,5,5);
+
+    // Call the isString function here.
+
+    var booleanValue = true;
+    var numericalValue = 354;
+    var stringValue = "This is a String";
+    isString(booleanValue,numericalValue,stringValue);
+    isString(stringValue,stringValue,stringValue);
+
+    // Call the vowelChecker function here.
+
+    // We will check ech letter you type for vowels
+    document.onkeyup = function () {
+        // Determines which exact key was selected. Make it lowercase
+        var userKeyup = String.fromCharCode(event.keyCode).toLowerCase();
+        vowelChecker(userKeyup);
+    }
+
+</script>
+
+</body>
+</html>
